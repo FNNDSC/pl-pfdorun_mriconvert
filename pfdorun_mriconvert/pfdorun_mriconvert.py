@@ -260,6 +260,8 @@ class Pfdorun_mriconvert(ChrisApp):
         options.outputDir = options.outputdir
 
         pf_do_shell         = pfdo_run(vars(options))
+        # pf_do_shell         = pfdo_run.object_factoryCreate(vars(options)).C_convert
+
 
         if options.man or options.synopsis:
             if options.man:
@@ -272,6 +274,7 @@ class Pfdorun_mriconvert(ChrisApp):
         # And now run it!
         # pudb.set_trace()
         d_pfdo_shell        = pf_do_shell.run(timerStart = True)
+        
         # print(d_pfdo_shell)
         if options.printElapsedTime:
             pf_do_shell.dp.qprint(
