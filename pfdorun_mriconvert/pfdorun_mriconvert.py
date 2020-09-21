@@ -262,7 +262,6 @@ class Pfdorun_mriconvert(ChrisApp):
         pf_do_shell         = pfdo_run(vars(options))
         # pf_do_shell         = pfdo_run.object_factoryCreate(vars(options)).C_convert
 
-
         if options.man or options.synopsis:
             if options.man:
                 str_help = self.show_man_page(False)
