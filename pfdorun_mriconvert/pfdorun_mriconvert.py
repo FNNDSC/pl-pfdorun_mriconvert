@@ -12,6 +12,7 @@
 
 import os
 import sys
+import pudb
 sys.path.append(os.path.dirname(__file__))
 
 # import the Chris app superclass
@@ -255,6 +256,8 @@ class Pfdorun_mriconvert(ChrisApp):
         """
         print(Gstr_title)
         print('Version: %s' % self.get_version())
+
+        pudb.set_trace()
 
         options.inputDir = options.inputdir
         options.outputDir = options.outputdir
