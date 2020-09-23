@@ -147,16 +147,15 @@ class Pfdorun_mriconvert(ChrisApp):
         description = '''
         DESCRIPTION
 
-            `pfdorun_mriconvert.py` recursively walks down a directory tree and runs a CLI program
-            from imagemagick (a CLI utility to format images in a desired way)
-            on files in each directory (optionally filtered by some simple
-            expression). Results of each operation are saved in an output tree
+            ``pfdorun_mriconvert.py`` is a ChRIS-based application that 
+            recursively walks down a directory tree and runs a CLI program
+            from mri_convert (a FreeSurfer program to convert mri images from one format to another)
+            Results of each operation are saved in an output tree
             that preserves the input directory structure.
 
-            ``pl-pfdorun_mriconvert`` runs one of imagemagick's user specified CLI at each path/file location
+            ``pl-pfdorun_mriconvert`` runs mri_convert's user specified CLI at each path/file location
             in an input directory, storing results (and logs) at a corresponding 
             dir location rooted in the output directory.
-
 
         ARGS
 
