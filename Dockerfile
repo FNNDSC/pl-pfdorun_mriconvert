@@ -29,7 +29,7 @@ MAINTAINER fnndsc "dev@babymri.org"
 ENV APPROOT="/usr/src/pfdorun_mriconvert"
 ENV DEBIAN_FRONTEND=noninteractive VERSION="0.1"
 # add mriconvert file to next line COPY command
-COPY ["pfdorun_mriconvert/", "requirements.txt", "license.txt", "${APPROOT}/"]
+COPY ["pfdorun_mriconvert/", "mri_convert", "requirements.txt", "license.txt", "${APPROOT}/"]
 
 WORKDIR $APPROOT
 
