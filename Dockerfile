@@ -30,7 +30,7 @@ ENV APPROOT="/usr/src/pfdorun_mriconvert"
 ENV DEBIAN_FRONTEND=noninteractive VERSION="0.1"
 # add mriconvert file to next line COPY command
 COPY ["pfdorun_mriconvert/", "mri_convert", "requirements.txt", "license.txt", "${APPROOT}/"]
-
+COPY ["mri_convert", "/usr/bin/"]
 WORKDIR $APPROOT
 
 # curl https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/7.1.0/freesurfer-linux-centos8_x86_64-7.1.0.tar.gz | \
