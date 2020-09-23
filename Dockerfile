@@ -35,7 +35,6 @@ WORKDIR $APPROOT
 
 RUN pip install --upgrade pip
 
-# add mv mriconvert line after mv license.txt /usr/bin/freesurfer
 RUN pip install -r requirements.txt \
     && apt-get update -q &&         \
     apt-get -qq install bc binutils libgomp1 perl psmisc curl tar tcsh uuid-dev vim-common libjpeg62-dev \
