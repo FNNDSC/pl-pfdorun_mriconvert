@@ -83,7 +83,7 @@ class Pfdorun_mriconvert(ChrisApp):
                           dest='exec', optional=False, default="")
 
         self.add_argument("--analyzeFileIndex", help="file index per directory to analyze", type=str,
-                          dest='analyzeFileIndex', optional=False, default="")
+                          dest='analyzeFileIndex', optional=False, default="-1")
 
         self.add_argument("--filterExpression", help="string file filter", type=str,
                           dest='filter', optional=True, default="")
@@ -257,7 +257,7 @@ class Pfdorun_mriconvert(ChrisApp):
         print(Gstr_title)
         print('Version: %s' % self.get_version())
 
-        pudb.set_trace()
+        # pudb.set_trace()
 
         options.inputDir = options.inputdir
         options.outputDir = options.outputdir

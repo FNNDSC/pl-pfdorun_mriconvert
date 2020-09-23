@@ -16,7 +16,7 @@ pl-pfdorun_mriconvert
 Abstract
 --------
 
-An app to ...
+An app to 
 
 
 Synopsis
