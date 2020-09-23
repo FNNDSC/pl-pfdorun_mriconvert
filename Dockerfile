@@ -33,14 +33,14 @@ COPY ["pfdorun_mriconvert/", "mri_convert", "requirements.txt", "license.txt", "
 
 WORKDIR $APPROOT
 
-RUN pip install --upgrade pip
 # curl https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/7.1.0/freesurfer-linux-centos8_x86_64-7.1.0.tar.gz | \
-# && mv license.txt /usr/local/freesurfer  \ 
+#     apt-get -qq install bc binutils libgomp1 perl psmisc curl tar tcsh uuid-dev vim-common libjpeg62-dev &&\
+#     libglu1-mesa libxmu6 libglib2.0-0 qt5-default && \
+#     tar -C /usr/local -xz                    \  
+
 RUN pip install -r requirements.txt \
-    && apt-get update -q &&         \
-    apt-get -qq install bc binutils libgomp1 perl psmisc curl tar tcsh uuid-dev vim-common libjpeg62-dev &&\
-    libglu1-mesa libxmu6 libglib2.0-0 qt5-default && \
-    tar -C /usr/local -xz                    \    
+    && pip install --upgrade pip    \
+    && apt-get update -q &&         \  
     && apt-get install -y locales            \
     && export LANGUAGE=en_US.UTF-8           \
     && export LANG=en_US.UTF-8               \
