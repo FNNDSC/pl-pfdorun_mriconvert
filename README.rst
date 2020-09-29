@@ -153,8 +153,11 @@ Now, prefix all calls with
 
 .. code:: bash
 
-    docker run --rm -v $(pwd)/out:/outgoing                             \
+    docker run --rm -v $(pwd)/in:/incoming -v $(pwd)/out:/outgoing           \
             fnndsc/pl-pfdorun_mriconvert pfdorun_mriconvert.py                        \
+            --exec "mri_convert %inputWorkingFile %outputWorkingDir/%_rmext_inputWorkingFile" \
+            --filterExpression dcm                              \
+            /incoming /outgoing
 
 Thus, getting inline help is:
 
