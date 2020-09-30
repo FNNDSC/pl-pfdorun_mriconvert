@@ -46,7 +46,7 @@ RUN pip install -r requirements.txt \
     && export LC_ALL=en_US.UTF-8             \
     && locale-gen en_US.UTF-8                \
     && dpkg-reconfigure locales              \
-    && mv license.txt /usr/local/freesurfer  \
+    && mv license.txt /usr/local/freesurfer  
 
 ENV PATH="/usr/local/freesurfer/bin:/usr/local/freesurfer/fsfast/bin:/usr/local/freesurfer/tktools:/usr/local/freesurfer/mni/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:" \
     FREESURFER_HOME="/usr/local/freesurfer" \
