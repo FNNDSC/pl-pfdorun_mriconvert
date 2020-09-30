@@ -45,7 +45,7 @@ class Pfdorun_mriconvert(ChrisApp):
     TYPE                    = 'ds'
     DESCRIPTION             = 'An app to run the mri_convert program of freesurfer on an entire directory structure.'
     DOCUMENTATION           = 'http://wiki'
-    VERSION                 = '0.1'
+    VERSION                 = '0.2'
     ICON                    = '' # url of an icon image
     LICENSE                 = 'Opensource (MIT)'
     MAX_NUMBER_OF_WORKERS   = 1  # Override with integer value

@@ -21,14 +21,14 @@ setup(
       name             =   'pfdorun_mriconvert',
       # for best practices make this version the same as the VERSION class variable
       # defined in your ChrisApp-derived Python class
-      version          =   '0.1',
+      version          =   '0.2',
       description      =   'An app to ...',
       long_description =   readme(),
       author           =   'FNNDSC',
       author_email     =   'dev@babyMRI.org',
       url              =   'http://wiki',
       packages         =   ['pfdorun_mriconvert'],
-      install_requires =   ['chrisapp', 'pudb'],
+      install_requires =   ['chrisapp', 'pudb', 'pfdo', 'pfdo_run', 'pftree', 'faker'],
       test_suite       =   'nose.collector',
       tests_require    =   ['nose'],
       scripts          =   ['pfdorun_mriconvert/pfdorun_mriconvert.py'],

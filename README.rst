@@ -1,4 +1,4 @@
-pl-pfdorun_mriconvert
+pl-pfdorun_mriconvert 0.2
 ================================
 
 .. image:: https://badge.fury.io/py/pfdorun_mriconvert.svg
