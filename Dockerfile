@@ -28,7 +28,6 @@ MAINTAINER fnndsc "dev@babymri.org"
 
 ENV APPROOT="/usr/src/pfdorun_mriconvert"
 ENV DEBIAN_FRONTEND=noninteractive VERSION="0.1"
-# add mriconvert file to next line COPY command
 COPY ["pfdorun_mriconvert/", "mri_convert", "requirements.txt", "license.txt", "${APPROOT}/"]
 COPY ["mri_convert", "/usr/bin/"]
 WORKDIR $APPROOT
@@ -48,20 +47,20 @@ RUN pip install --upgrade pip
     # && locale-gen en_US.UTF-8                \
     # && dpkg-reconfigure locales
 
-ENV SUBJECTS_DIR="/outgoing"
+# ENV SUBJECTS_DIR="/outgoing"
 # ENV PATH="/usr/local/freesurfer/bin:/usr/local/freesurfer/fsfast/bin:/usr/local/freesurfer/tktools:/usr/local/freesurfer/mni/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:" \
-#     FREESURFER_HOME="/usr/local/freesurfer" \
-#     SUBJECTS_DIR="/outgoing" \
-#     MINC_LIB_DIR="/usr/local/freesurfer/mni/lib" \
-#     MNI_DATAPATH="/usr/local/freesurfer/mni/data" \
-#     PERL5LIB="/usr/local/freesurfer/mni/share/perl5" \
-#     MINC_BIN_DIR="/usr/local/freesurfer/mni/bin" \
-#     MNI_PERL5LIB="/usr/local/freesurfer/mni/share/perl5" \
-#     FMRI_ANALYSIS_DIR="/usr/local/freesurfer/fsfast" \
-#     FUNCTIONALS_DIR="/usr/local/freesurfer/sessions" \
-#     LOCAL_DIR="/usr/local/freesurfer/local" \
-#     FSFAST_HOME="/usr/local/freesurfer/fsfast" \
-#     MNI_DIR="/usr/local/freesurfer/mni" \
-#     FSF_OUTPUT_FORMAT="nii.gz"
+ENV FREESURFER_HOME="/usr/local/freesurfer" \
+    SUBJECTS_DIR="/outgoing" \
+    MINC_LIB_DIR="/usr/local/freesurfer/mni/lib" \
+    MNI_DATAPATH="/usr/local/freesurfer/mni/data" \
+    PERL5LIB="/usr/local/freesurfer/mni/share/perl5" \
+    MINC_BIN_DIR="/usr/local/freesurfer/mni/bin" \
+    MNI_PERL5LIB="/usr/local/freesurfer/mni/share/perl5" \
+    FMRI_ANALYSIS_DIR="/usr/local/freesurfer/fsfast" \
+    FUNCTIONALS_DIR="/usr/local/freesurfer/sessions" \
+    LOCAL_DIR="/usr/local/freesurfer/local" \
+    FSFAST_HOME="/usr/local/freesurfer/fsfast" \
+    MNI_DIR="/usr/local/freesurfer/mni" \
+    FSF_OUTPUT_FORMAT="nii.gz"
 
 CMD ["pfdorun_mriconvert.py", "--help"]
