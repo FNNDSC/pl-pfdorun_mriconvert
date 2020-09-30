@@ -38,14 +38,14 @@ WORKDIR $APPROOT
 #     tar -C /usr/local -xz                    \  
 
 RUN pip install -r requirements.txt 
-RUN pip install --upgrade pip    
-    # && apt-get update -q &&         \  
-    # && apt-get install -y locales            \
-    # && export LANGUAGE=en_US.UTF-8           \
-    # && export LANG=en_US.UTF-8               \
-    # && export LC_ALL=en_US.UTF-8             \
-    # && locale-gen en_US.UTF-8                \
-    # && dpkg-reconfigure locales
+RUN pip install --upgrade pip    \
+    && apt-get update -q &&         \  
+    && apt-get install -y locales            \
+    && export LANGUAGE=en_US.UTF-8           \
+    && export LANG=en_US.UTF-8               \
+    && export LC_ALL=en_US.UTF-8             \
+    && locale-gen en_US.UTF-8                \
+    && dpkg-reconfigure locales
 
 ENV PATH="/usr/local/freesurfer/bin:/usr/local/freesurfer/fsfast/bin:/usr/local/freesurfer/tktools:/usr/local/freesurfer/mni/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:" \
     FREESURFER_HOME="/usr/local/freesurfer" \
