@@ -37,9 +37,9 @@ WORKDIR $APPROOT
 #     libglu1-mesa libxmu6 libglib2.0-0 qt5-default && \
 #     tar -C /usr/local -xz                    \  
 
-RUN pip install -r requirements.txt 
-RUN pip install --upgrade pip    \
-    && apt-get update -q &&         \  
+RUN pip install -r requirements.txt \
+    && pip install --upgrade pip    \
+    && apt-get update -q          \  
     && apt-get install -y locales            \
     && export LANGUAGE=en_US.UTF-8           \
     && export LANG=en_US.UTF-8               \
