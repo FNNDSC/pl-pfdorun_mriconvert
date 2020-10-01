@@ -40,6 +40,7 @@ WORKDIR $APPROOT
 RUN pip install -r requirements.txt \
     && pip install --upgrade pip    \
     && apt-get update -q          \ 
+    && mkdir /usr/local/freesurfer           \
     && mv license.txt /usr/local/freesurfer  \ 
     && apt-get install -y locales            \
     && export LANGUAGE=en_US.UTF-8           \
