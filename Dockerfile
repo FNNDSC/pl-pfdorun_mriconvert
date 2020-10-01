@@ -42,7 +42,7 @@ RUN pip install -r requirements.txt \
     && apt-get update -q          \ 
     && mkdir /usr/local/freesurfer           \
     && mv license.txt /usr/local/freesurfer  \ 
-    && mv FressSurferColorLUT.txt /usr/local/freesurfer  \
+    && mv FreeSurferColorLUT.txt /usr/local/freesurfer  \
     && apt-get install -y locales            \
     && export LANGUAGE=en_US.UTF-8           \
     && export LANG=en_US.UTF-8               \
