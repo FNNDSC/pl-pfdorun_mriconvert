@@ -28,7 +28,7 @@ MAINTAINER fnndsc "dev@babymri.org"
 
 ENV APPROOT="/usr/src/pfdorun_mriconvert"
 ENV DEBIAN_FRONTEND=noninteractive VERSION="0.1"
-COPY ["pfdorun_mriconvert/", "mri_convert", "requirements.txt", "license.txt", "${APPROOT}/"]
+COPY ["pfdorun_mriconvert/", "mri_convert", "requirements.txt", "license.txt", "FreeSurferColorLUT.txt", "${APPROOT}/"]
 COPY ["mri_convert", "/usr/bin/"]
 WORKDIR $APPROOT
 
@@ -42,6 +42,7 @@ RUN pip install -r requirements.txt \
     && apt-get update -q          \ 
     && mkdir /usr/local/freesurfer           \
     && mv license.txt /usr/local/freesurfer  \ 
+    && mv FressSurferColorLUT.txt /usr/local/freesurfer  \
     && apt-get install -y locales            \
     && export LANGUAGE=en_US.UTF-8           \
     && export LANG=en_US.UTF-8               \
