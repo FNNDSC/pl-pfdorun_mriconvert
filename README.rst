@@ -144,33 +144,69 @@ Arguments
 Run
 ---
 
+First, let's create a directory, say ``devel`` wherever you feel like it. We will place some test data in this directory to process with this plugin.
+
+.. code:: bash
+
+    cd ~/
+    mkdir devel
+    cd devel
+    export DEVEL=$(pwd)
+
+Now, we need to fetch sample DICOM data.
+
+
+Pull DICOM
+^^^^^^^^^^
+
+The input should be a DICOM file usually with extension .dcm
+
+We provide a sample directory of .dcm images here. (https://github.com/FNNDSC/SAG-anon.git)
+
+-   Clone this repository (SAG-anon) to your local computer within the ${DEVEL} directory.
+
+::
+
+    git clone https://github.com/FNNDSC/SAG-anon.git
+
+Make sure the ``SAG-anon`` directory is placed in the devel directory.
+
+
 Using ``docker run``
 ~~~~~~~~~~~~~~~~~~~~
 
 To run using ``docker``, be sure to assign an "input" directory to ``/incoming`` and an output directory to ``/outgoing``. *Make sure that the* ``$(pwd)/out`` *directory is world writable!*
 
-Now, prefix all calls with 
+- Make sure your current working directory is ``devel``. At this juncture it should contain `SAG-anon``.
+
+- Create an output directory named ``results`` in ``devel``.
 
 .. code:: bash
 
-    docker run --rm -v $(pwd)/in:/incoming -v $(pwd)/out:/outgoing           \
-            fnndsc/pl-pfdorun_mriconvert pfdorun_mriconvert.py                        \
-            --exec "mri_convert %inputWorkingFile %outputWorkingDir/%_rmext_inputWorkingFile" \
-            --filterExpression dcm                              \
-            /incoming /outgoing
+    mkdir results && chmod 777 results
 
-Thus, getting inline help is:
+- Pull the ``fnndsc/pl-pfdorun_mriconvert`` image using the following command.
 
 .. code:: bash
 
-    mkdir in out && chmod 777 out
-    docker run --rm -v $(pwd)/in:/incoming -v $(pwd)/out:/outgoing      \
-            fnndsc/pl-pfdorun_mriconvert pfdorun_mriconvert.py                        \
-            --man                                                       \
-            /incoming /outgoing
+    docker pull fnndsc/pl-pfdorun_mriconvert
 
 Examples
 --------
+
+.. code:: bash
+
+    docker run --rm -v ${DEVEL}/SAG-anon/:/incoming 
+            -v ${DEVEL}/results:/outgoing                                   \
+            fnndsc/pl-pfdorun_mriconvert pfdorun_mriconvert.py               \
+            --exec "mri_convert %inputWorkingFile 
+                %outputWorkingDir/%_rmext_inputWorkingFile"                  \
+            --filterExpression dcm                                           \
+            --analyzeFileIndex f                                             \
+            --printElapsedTime                                               \
+            /incoming /outgoing
+
+
 
 
 
