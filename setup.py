@@ -1,37 +1,27 @@
-
-import sys
-import os
-
-
-# Make sure we are running python3.5+
-if 10 * sys.version_info[0] + sys.version_info[1] < 35:
-    sys.exit("Sorry, only Python 3.5+ is supported.")
-
-
+from os import path
 from setuptools import setup
 
-
-def readme():
-    print("Current dir = %s" % os.getcwd())
-    print(os.listdir())
-    with open('README.rst') as f:
-        return f.read()
+with open(path.join(path.dirname(path.abspath(__file__)), 'README.rst')) as f:
+    readme = f.read()
 
 setup(
-      name             =   'pfdorun_mriconvert',
-      # for best practices make this version the same as the VERSION class variable
-      # defined in your ChrisApp-derived Python class
-      version          =   '0.2',
-      description      =   'An app to ...',
-      long_description =   readme(),
-      author           =   'FNNDSC',
-      author_email     =   'dev@babyMRI.org',
-      url              =   'http://wiki',
-      packages         =   ['pfdorun_mriconvert'],
-      install_requires =   ['chrisapp', 'pudb', 'pfdo', 'pfdo_run', 'pftree', 'faker'],
-      test_suite       =   'nose.collector',
-      tests_require    =   ['nose'],
-      scripts          =   ['pfdorun_mriconvert/pfdorun_mriconvert.py'],
-      license          =   'MIT',
-      zip_safe         =   False
-     )
+    name             = 'pfdorun_mriconvert',
+    version          = '1.0.0',
+    description      = 'An app that recursively walks down a directory tree and runs a CLI program from mri_convert',
+    long_description = readme,
+    author           = 'Arushi Vyas',
+    author_email     = 'dev@babyMRI.org',
+    url              = 'https://github.com/FNNDSC/pl-pfdorun_mriconvert',
+    packages         = ['pfdorun_mriconvert'],
+    install_requires = ['chrisapp'],
+    test_suite       = 'nose.collector',
+    tests_require    = ['nose'],
+    license          = 'MIT',
+    zip_safe         = False,
+    python_requires  = '>=3.6',
+    entry_points     = {
+        'console_scripts': [
+            'pfdorun_mriconvert = pfdorun_mriconvert.__main__:main'
+            ]
+        }
+)
